@@ -11,3 +11,9 @@ The program is written in C# as Windows Forms application using the .NET Framewo
 
 Here is the link to the lastest version of the exectuable for people that just want to run the
 software without thinkering.
+
+<Link will be added soon>
+
+### Contact
+
+If you have any problems, questions or suggestions send me a mail at vinko.kodzoman@fer.hr
