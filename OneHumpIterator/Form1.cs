@@ -91,6 +91,7 @@ namespace OneHumpIterator
                     f1 = (r * x * (1 - x));
                     if (cb1.Checked)                     
                         graph.Series[1].Points.AddXY(x, f1);
+
                     if (Math.Abs(f1 - x) <= error)
                         f11.Text = Convert.ToString(Math.Round(f1, 2)).Replace(",", ".");
 
@@ -499,6 +500,20 @@ namespace OneHumpIterator
             else
                 graph.Series[4].BorderWidth = 0;
             draw();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            String info = "To get the up to date code visit the github page https://github.com/Weenkus/One-Hump-Iterator-Visualization";
+            info += "\n\nContact vinko.kodzoman@fer.hr  \n\n\n";
+            info += "The program draws four compositions, of a function that the user chooses at the top of the form. ";
+            info += "Every function has a variable r and the user can change it by using the slider found on the bottom of the form. ";
+            info += "The value of r is printed on the right of the graph together with all fixed points (FT) from all founction compositions. ";
+            info += "\n\nf^2(x) represent the second composition of f(x), f^2(x) = f(f(x))";
+            info += "\n\nFT1 is the first fixed point of a function";
+            info += "\n\nIn the bottom right coner there are four check boxes witch allow the user to choose which compositions of the function f(x) will be shown.";
+
+            MessageBox.Show(info);
         }
     }
 }

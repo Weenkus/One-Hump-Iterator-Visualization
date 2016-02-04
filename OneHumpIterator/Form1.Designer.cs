@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.cbIterator = new System.Windows.Forms.ComboBox();
             this.graph = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.sliderR = new System.Windows.Forms.TrackBar();
@@ -62,6 +62,7 @@
             this.r = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.graph)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sliderR)).BeginInit();
             this.panel1.SuspendLayout();
@@ -75,39 +76,40 @@
             this.cbIterator.FormattingEnabled = true;
             this.cbIterator.Location = new System.Drawing.Point(0, 0);
             this.cbIterator.Name = "cbIterator";
-            this.cbIterator.Size = new System.Drawing.Size(653, 34);
+            this.cbIterator.Size = new System.Drawing.Size(771, 34);
             this.cbIterator.TabIndex = 0;
             this.cbIterator.SelectedIndexChanged += new System.EventHandler(this.cbIterator_SelectedIndexChanged);
             // 
             // graph
             // 
-            chartArea1.Name = "ChartArea1";
-            this.graph.ChartAreas.Add(chartArea1);
+            chartArea2.Name = "ChartArea1";
+            this.graph.ChartAreas.Add(chartArea2);
             this.graph.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Name = "Legend1";
-            this.graph.Legends.Add(legend1);
+            legend2.Name = "Legend1";
+            this.graph.Legends.Add(legend2);
             this.graph.Location = new System.Drawing.Point(0, 0);
             this.graph.Name = "graph";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.graph.Series.Add(series1);
-            this.graph.Size = new System.Drawing.Size(519, 447);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.graph.Series.Add(series2);
+            this.graph.Size = new System.Drawing.Size(637, 501);
             this.graph.TabIndex = 2;
             this.graph.Text = "graph";
             // 
             // sliderR
             // 
             this.sliderR.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.sliderR.Location = new System.Drawing.Point(0, 481);
+            this.sliderR.Location = new System.Drawing.Point(0, 535);
             this.sliderR.Maximum = 5;
             this.sliderR.Name = "sliderR";
-            this.sliderR.Size = new System.Drawing.Size(653, 45);
+            this.sliderR.Size = new System.Drawing.Size(771, 45);
             this.sliderR.TabIndex = 3;
             this.sliderR.ValueChanged += new System.EventHandler(this.sliderR_ValueChanged);
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
@@ -135,9 +137,9 @@
             this.panel1.Controls.Add(this.r);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(519, 34);
+            this.panel1.Location = new System.Drawing.Point(637, 34);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(134, 447);
+            this.panel1.Size = new System.Drawing.Size(134, 501);
             this.panel1.TabIndex = 4;
             // 
             // label8
@@ -417,14 +419,24 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 34);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(519, 447);
+            this.panel2.Size = new System.Drawing.Size(637, 501);
             this.panel2.TabIndex = 5;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(27, 472);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 31;
+            this.button1.Text = "Help";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(653, 526);
+            this.ClientSize = new System.Drawing.Size(771, 580);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.sliderR);
@@ -474,6 +486,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button1;
     }
 }
 
