@@ -76,7 +76,7 @@ namespace OneHumpIterator
             double r = (double)sliderR.Value / 100;
             double f1, f2, f4, f8;
             double smoothness = 0.005;
-            const double error = 0.006;
+            const double error = 0.021;
 
             List<Label> labelsf2 = new List<Label>() { f21, f22, f23, f24 };
             List<double> valuesf2 = new List<double>();
@@ -277,23 +277,35 @@ namespace OneHumpIterator
                 }
             }
 
-            // Draw FTs for f2
+            // Clear old labels
             for (int i = 0; i < labelsf2.Count; ++i)
+                labelsf2[i].Text = "/";
+            for (int i = 0; i < labelsf4.Count; ++i)
+                labelsf4[i].Text = "/";
+
+            // Draw FTs for f2
+            int count = 0;
+            double intervalError = 0.03;
+            for (int i = 0; i < valuesf2.Count; ++i)
             {
-                if (valuesf2.Count <= i || (i >= 1 && Math.Abs(valuesf2[i] - valuesf2[i-1]) <= (0.05) ))
-                   labelsf2[i].Text = "/";
-                else
-                    labelsf2[i].Text = Convert.ToString(Math.Round(valuesf2[i], 2)).Replace(",", ".");
+                if (!(valuesf2.Count <= i || (i >= 1 && Math.Abs(valuesf2[i] - valuesf2[i - 1]) <= intervalError)) && count < labelsf2.Count)
+                {
+                    labelsf2[count].Text = Convert.ToString(Math.Round(valuesf2[i], 2)).Replace(",", ".");
+                    count++;
+                }
             }
 
             // Draw FTs for f4
-            for (int i = 0; i < labelsf4.Count; ++i)
+            count = 0;
+            for (int i = 0; i < valuesf2.Count; ++i)
             {
-               if (valuesf4.Count <= i || (i >= 1 && Math.Abs(valuesf4[i] - valuesf4[i - 1]) <= (0.05)))
-                   labelsf4[i].Text = "/";
-                else
-                    labelsf4[i].Text = Convert.ToString(Math.Round(valuesf4[i], 2)).Replace(",", ".");
+                if (!(valuesf4.Count <= i || (i >= 1 && Math.Abs(valuesf4[i] - valuesf4[i - 1]) <= intervalError)) && count < labelsf4.Count)
+                {
+                    labelsf4[count].Text = Convert.ToString(Math.Round(valuesf4[i], 2)).Replace(",", ".");
+                    count++;
+                }
             }
+
 
             valuesf2.Clear();
             valuesf4.Clear();
@@ -456,51 +468,62 @@ namespace OneHumpIterator
 
         private void cb1_Click(object sender, EventArgs e)
         {
-            if (graph.Series[1].BorderWidth == 0)
+            if (cbIterator.SelectedItem != null)
             {
-                graph.Series[1].BorderWidth = 3;
-                dynamicThickness();
+                if (graph.Series[1].BorderWidth == 0)
+                {
+                    graph.Series[1].BorderWidth = 3;
+                    dynamicThickness();
+                }
+                else
+                    graph.Series[1].BorderWidth = 0;
+                draw();
             }
-            else
-                graph.Series[1].BorderWidth = 0;
-            draw();
-
         }
 
         private void cb2_CheckedChanged(object sender, EventArgs e)
         {
-            if (graph.Series[2].BorderWidth == 0)
+            if (cbIterator.SelectedItem != null)
             {
-                graph.Series[2].BorderWidth = 3;
-                dynamicThickness();
+                if (graph.Series[2].BorderWidth == 0)
+                {
+                    graph.Series[2].BorderWidth = 3;
+                    dynamicThickness();
+                }
+                else
+                    graph.Series[2].BorderWidth = 0;
+                draw();
             }
-            else
-                graph.Series[2].BorderWidth = 0;
-            draw();
         }
 
         private void cb4_CheckedChanged(object sender, EventArgs e)
         {
-            if (graph.Series[3].BorderWidth == 0)
+            if (cbIterator.SelectedItem != null)
             {
-                graph.Series[3].BorderWidth = 3;
-                dynamicThickness();
+                if (graph.Series[3].BorderWidth == 0)
+                {
+                    graph.Series[3].BorderWidth = 3;
+                    dynamicThickness();
+                }
+                else
+                    graph.Series[3].BorderWidth = 0;
+                draw();
             }
-            else
-                graph.Series[3].BorderWidth = 0;
-            draw();
         }
 
         private void cb8_CheckedChanged(object sender, EventArgs e)
         {
-            if (graph.Series[4].BorderWidth == 0)
+            if (cbIterator.SelectedItem != null)
             {
-                graph.Series[4].BorderWidth = 3;
-                dynamicThickness();
+                if (graph.Series[4].BorderWidth == 0)
+                {
+                    graph.Series[4].BorderWidth = 3;
+                    dynamicThickness();
+                }
+                else
+                    graph.Series[4].BorderWidth = 0;
+                draw();
             }
-            else
-                graph.Series[4].BorderWidth = 0;
-            draw();
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.cbIterator = new System.Windows.Forms.ComboBox();
             this.graph = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.sliderR = new System.Windows.Forms.TrackBar();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -62,7 +63,6 @@
             this.r = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.graph)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sliderR)).BeginInit();
             this.panel1.SuspendLayout();
@@ -82,17 +82,17 @@
             // 
             // graph
             // 
-            chartArea2.Name = "ChartArea1";
-            this.graph.ChartAreas.Add(chartArea2);
+            chartArea1.Name = "ChartArea1";
+            this.graph.ChartAreas.Add(chartArea1);
             this.graph.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend2.Name = "Legend1";
-            this.graph.Legends.Add(legend2);
+            legend1.Name = "Legend1";
+            this.graph.Legends.Add(legend1);
             this.graph.Location = new System.Drawing.Point(0, 0);
             this.graph.Name = "graph";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.graph.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.graph.Series.Add(series1);
             this.graph.Size = new System.Drawing.Size(637, 501);
             this.graph.TabIndex = 2;
             this.graph.Text = "graph";
@@ -141,6 +141,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(134, 501);
             this.panel1.TabIndex = 4;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(27, 472);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 31;
+            this.button1.Text = "Help";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label8
             // 
@@ -421,16 +431,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(637, 501);
             this.panel2.TabIndex = 5;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(27, 472);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 31;
-            this.button1.Text = "Help";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
