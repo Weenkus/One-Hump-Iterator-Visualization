@@ -76,7 +76,7 @@ namespace OneHumpIterator
             double r = (double)sliderR.Value / 100;
             double f1, f2, f4, f8;
             double smoothness = 0.005;
-            const double error = 0.01;
+            const double error = 0.006;
 
             List<Label> labelsf2 = new List<Label>() { f21, f22, f23, f24 };
             List<double> valuesf2 = new List<double>();
@@ -87,15 +87,15 @@ namespace OneHumpIterator
             {
                 for (double x = 0; x <= 1; x += smoothness)
                 {
+                    double xPrev = x - smoothness;
                     // f(x)
                     f1 = (r * x * (1 - x));
+
                     if (cb1.Checked)                     
                         graph.Series[1].Points.AddXY(x, f1);
 
                     if (Math.Abs(f1 - x) <= error)
                         f11.Text = Convert.ToString(Math.Round(f1, 2)).Replace(",", ".");
-
-
 
                     // f^2(x)
                     f2 = (r * f1 * (1 - f1));
@@ -130,6 +130,7 @@ namespace OneHumpIterator
                     f1 = (r * x * Math.Sqrt(1 - x));
                     if (cb1.Checked)
                         graph.Series[1].Points.AddXY(x, f1);
+                
                     if (Math.Abs(f1 - x) <= error)
                         f11.Text = Convert.ToString(Math.Round(f1, 2)).Replace(",", ".");
 
@@ -277,10 +278,10 @@ namespace OneHumpIterator
             }
 
             // Draw FTs for f2
-            for (int i = 0; i < labelsf2.Count(); ++i)
+            for (int i = 0; i < labelsf2.Count; ++i)
             {
-                if (valuesf2.Count <= i || (i >= 1 && Math.Abs(valuesf2[i] - valuesf2[i-1]) <= (0.6 * error) ))
-                    labelsf2[i].Text = "/";
+                if (valuesf2.Count <= i || (i >= 1 && Math.Abs(valuesf2[i] - valuesf2[i-1]) <= (0.05) ))
+                   labelsf2[i].Text = "/";
                 else
                     labelsf2[i].Text = Convert.ToString(Math.Round(valuesf2[i], 2)).Replace(",", ".");
             }
@@ -288,8 +289,8 @@ namespace OneHumpIterator
             // Draw FTs for f4
             for (int i = 0; i < labelsf4.Count; ++i)
             {
-                if (valuesf4.Count <= i || (i >= 1 && Math.Abs(valuesf4[i] - valuesf4[i - 1]) <= (0.6 * error)))
-                    labelsf4[i].Text = "/";
+               if (valuesf4.Count <= i || (i >= 1 && Math.Abs(valuesf4[i] - valuesf4[i - 1]) <= (0.05)))
+                   labelsf4[i].Text = "/";
                 else
                     labelsf4[i].Text = Convert.ToString(Math.Round(valuesf4[i], 2)).Replace(",", ".");
             }
@@ -505,13 +506,16 @@ namespace OneHumpIterator
         private void button1_Click(object sender, EventArgs e)
         {
             String info = "To get the up to date code visit the github page https://github.com/Weenkus/One-Hump-Iterator-Visualization";
-            info += "\n\nContact vinko.kodzoman@fer.hr  \n\n\n";
-            info += "The program draws four compositions, of a function that the user chooses at the top of the form. ";
+            info += "\n\nContact: vinko.kodzoman@fer.hr  \n\n";
+            info += "The program draws four compositions of a function that the user chooses at the top of the form. ";
             info += "Every function has a variable r and the user can change it by using the slider found on the bottom of the form. ";
             info += "The value of r is printed on the right of the graph together with all fixed points (FT) from all founction compositions. ";
             info += "\n\nf^2(x) represent the second composition of f(x), f^2(x) = f(f(x))";
             info += "\n\nFT1 is the first fixed point of a function";
             info += "\n\nIn the bottom right coner there are four check boxes witch allow the user to choose which compositions of the function f(x) will be shown.";
+
+            info += "\n\nWhen a composition of f(x) is bolded it means that the given composition has a stable fixed point.";
+            info += " Some compositions don't get bolded duo to lack of information needed to give an upper and lower bound for the stability.";
 
             MessageBox.Show(info);
         }
