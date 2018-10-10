@@ -24,13 +24,7 @@ FT2 is the second fixed point of a function (or the composition) and so on...
 
 In the bottom right coner there are four check boxes witch allow the user to choose which compositions of the function f(x) will be shown.
 
-### Executable
-
-Here is the link to the lastest version of the exectuable for people that just want to run the
-software without thinkering.
-
-_Link will be added soon_
 
 ### Contact
 
-If you have any problems, questions or suggestions send me a mail at vinko.kodzoman@fer.hr
+If you have any problems, questions or suggestions send me a mail at vinko.kodzoman@yahoo.com
